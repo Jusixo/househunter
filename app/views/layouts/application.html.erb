@@ -19,27 +19,8 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body class="controller-<%= controller_name%> action-<%= action_name%>">
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <%= link_to "#", class: "navbar-brand" do %>
-          Househunter
-        <% end %>
-      </div>
-      <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li class="active"><%= link_to "Home", "#" %></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+<body class="controller-pages">
+
   <div class="container">
     <% flash.each do |name, msg| %>
       <%= content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do %>
@@ -47,6 +28,16 @@
         <%= msg %>
       <% end %>
     <% end %>
+    <main>
+
+    <div class="sign row">
+      <div class="col-md-3"> </div>
+      <div class="col-md-2"><%= link_to homes_path do %> <button type="button" class="btn btn-lg btn-primary" disabled="disabled">Sign In</button><% end %></div>
+      <div class="col-md-2"><%= link_to homes_path do %> <button type="button" class="btn btn-lg btn-success" disabled="disabled"> Sign Up</button><% end %></div>
+      <div class="col-md-2"><%= link_to homes_path do %> <button type="button"  class="btn btn-lg btn-info" disabled="disabled"> View Homes </button><% end %></div>
+      <div class="col-md-3"> </div>
+    </div>
+  </main>
 
     <%= yield %>
   </div>

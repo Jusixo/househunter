@@ -6,16 +6,31 @@
    padding: 50px;
    border: 50px;
    border-radius: 20px;
-
+   margin-bottom: 0;
 }
 
 .controller-pages{
-   background: image-url('cin.jpg');
-   background-size: cover;
+  background: image-url('cin.jpg');
+  background-size: cover;
+background-repeat: no-repeat;
+}
+
+.sign{
+  margin-top: 0;
+  margin-bottom: 60px;
 }
 
 .landing-row{
-  margin: 0;
+  display: flex;
   justify-content: space-between ;
-  align-items: flex-start ;
+  align-items: baseline ;
+}
+
+.pic img{
+  margin: 40px;
+  display: flex;
+  padding: 0;
+  border: solid 10px #AEC6CF ;
+  border-radius: 20px;
+  margin-bottom: 40px;
 }
