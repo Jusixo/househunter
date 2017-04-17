@@ -28,17 +28,18 @@
         <%= msg %>
       <% end %>
     <% end %>
+    <body>
 
-  <div class="page-header text-center">
-    <h1>Welcome to House Hunters</h1>
-    <h1><small>We will do what we can to find the house of your dreams</small></h1>
-  </div>
+    <div class="page-header text-center">
+      <h1>Welcome to House Hunters</h1>
+      <h1><small>We will do what we can to find the house of your dreams</small></h1>
+    </div>
 
 
 
     <div class="sign row">
       <div class="col-md-3"> </div>
-      <div class="col-md-2"><%= link_to 'Login with Github', auth_path(provider: 'github') %> <button type="button" class="btn btn-lg btn-primary" disabled="disabled">Sign In</button><% end %></div>
+      <div class="col-md-2"><%= link_to homes_path do %> <button type="button" class="btn btn-lg btn-primary" disabled="disabled">Sign In</button><% end %></div>
       <div class="col-md-2"><%= link_to homes_path do %> <button type="button" class="btn btn-lg btn-success" disabled="disabled"> Sign Up</button><% end %></div>
       <div class="col-md-2"><%= link_to homes_path do %> <button type="button"  class="btn btn-lg btn-info" disabled="disabled"> View Homes </button><% end %></div>
       <div class="col-md-3"> </div>
@@ -46,32 +47,31 @@
 
   </div>
 
-  <main>
-    <div class="landing row">
-      <div class="pic col-md-2"><%= image_tag("lightblue.jpg", size: "250x250", :alt => "Promo Image") %></div>
-      <div class="col-md-6"></div>
-      <div class="pic col-md-2"><%= image_tag("darkblue.jpg", size: "250x250", :alt => "Promo Image") %></div>
-      <div class="col-md-2"></div>
-    </div>
+  <div class="landing row">
+    <div class="pic col-md-2"><%= image_tag("lightblue.jpg", size: "250x250", :alt => "Promo Image") %></div>
+    <div class="col-md-6"></div>
+    <div class="pic col-md-2"><%= image_tag("darkblue.jpg", size: "250x250", :alt => "Promo Image") %></div>
+    <div class="col-md-2"></div>
+  </div>
 
-    <div class="container">
-      <div class="col-lg-8 col-md-offset-2">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="What kind of home are you looking for?">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-          </span>
-        </div>
+  <div class="container">
+    <div class="col-lg-8 col-md-offset-2">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="What kind of home are you looking for?">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+        </span>
       </div>
     </div>
+  </div>
 
-    <div class="landing row">
-      <div class="pic col-md-2"><%= image_tag("gleft.jpg", size: "250x250", :alt => "Promo Image") %></div>
-      <div class="col-md-6"></div>
-      <div class="pic col-md-2"><%= image_tag("gright.jpg", size: "250x250", :alt => "Promo Image") %></div>
-      <div class="col-md-2"></div>
-    </div>
+  <div class="landing row">
+    <div class="pic col-md-2"><%= image_tag("gleft.jpg", size: "250x250", :alt => "Promo Image") %></div>
+    <div class="col-md-6"></div>
+    <div class="pic col-md-2"><%= image_tag("gright.jpg", size: "250x250", :alt => "Promo Image") %></div>
+    <div class="col-md-2"></div>
+  </div>
 
-  </main>
+  </body>
 </body>
 </html>
