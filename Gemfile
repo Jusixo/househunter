@@ -1,4 +1,4 @@
-ruby '2.4.0'
+ruby '2.4.1'
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -10,6 +10,10 @@ gem 'omniauth'
 gem 'omniauth-github'
 
 gem 'shrine'
+gem 'shrine-sql'
+gem 'roda'
+gem 'image_processing'
+gem 'mini_magick', '>= 4.3.5'
 
 gem 'kaminari'
 

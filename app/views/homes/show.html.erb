@@ -1,18 +1,24 @@
 <div class="page-header">
-  <%= link_to homes_path, class: 'btn btn-default' do %>
+  <%= link_to homes_path, class: 'btn btn-default new-home-button' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
     Back
   <% end %>
-  <%= link_to edit_home_path(@home), class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
+  <% if @home.user == current_user %>
+    <%= link_to edit_home_path(@home), class: 'btn btn-primary new-home-button' do %>
+      <span class="glyphicon glyphicon-pencil"></span>
+      Edit
+    <% end %>
+    <%= link_to @home, method: :delete, class: 'btn btn-primary new-home-button', data: { confirm: 'Are you sure?' } do %>
+      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    <% end %>
   <% end %>
-  <h1>Show home</h1>
+
+  <h1>Listing</h1>
 </div>
 
 <dl class="dl-horizontal">
   <dt>Image:</dt>
-  <dd><%= @home.image_url %></dd>
+  <dd><%= image_tag (@home.image_url) %></dd>
 
   <dt>Address:</dt>
   <dd><%= @home.address %></dd>
@@ -24,13 +30,13 @@
   <dd><%= @home.state %></dd>
 
   <dt>Zipcode:</dt>
-  <dd><%= @home.zipcode %></dd>
+  <dd><%= @home.zip %></dd>
 
   <dt>Bedrooms:</dt>
-  <dd><%= @home.bedrooms %></dd>
+  <dd><%= @home.bedroom %></dd>
 
   <dt>Bathrooms:</dt>
-  <dd><%= @home.bathrooms %></dd>
+  <dd><%= @home.bath %></dd>
 
   <dt>Square feet:</dt>
   <dd><%= @home.square_feet %></dd>

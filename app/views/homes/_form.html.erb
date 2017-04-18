@@ -17,7 +17,7 @@
   <%# address %>
   <div class="form-group">
     <%= f.label :address, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
+    <div class="col-md-8">
       <%= f.text_field :address, class: "form-control" %>
     </div>
   </div>
@@ -26,7 +26,7 @@
   <%# city %>
   <div class="form-group">
     <%= f.label :city, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
+    <div class="col-md-8">
       <%= f.text_field :city, class: "form-control" %>
     </div>
   </div>
@@ -35,7 +35,7 @@
   <%# state %>
   <div class="form-group">
     <%= f.label :state, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
+    <div class="col-md-8">
       <%= f.text_field :state, class: "form-control" %>
     </div>
   </div>
@@ -44,7 +44,7 @@
   <%# zip %>
   <div class="form-group">
     <%= f.label :zip, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
+    <div class="col-md-8">
       <%= f.number_field :zip, class: "form-control" %>
     </div>
   </div>
@@ -53,7 +53,7 @@
   <%# bedroom %>
   <div class="form-group">
     <%= f.label :bedroom, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
+    <div class="col-md-8">
       <%= f.number_field :bedroom, class: "form-control" %>
     </div>
   </div>
@@ -62,7 +62,7 @@
   <%# bath %>
   <div class="form-group">
     <%= f.label :bath, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
+    <div class="col-md-8">
       <%= f.number_field :bath, class: "form-control" %>
     </div>
   </div>
@@ -71,7 +71,7 @@
   <%# square_feet %>
   <div class="form-group">
     <%= f.label :square_feet, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
+    <div class="col-md-8">
       <%= f.number_field :square_feet, class: "form-control" %>
     </div>
   </div>
@@ -80,7 +80,7 @@
   <%# price %>
   <div class="form-group">
     <%= f.label :price, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
+    <div class="col-md-8">
       <%= f.number_field :price, class: "form-control" %>
     </div>
   </div>
@@ -89,7 +89,7 @@
   <%# description %>
   <div class="form-group">
     <%= f.label :description, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
+    <div class="col-md-8">
       <%= f.text_field :description, class: "form-control" %>
     </div>
   </div>
@@ -98,7 +98,7 @@
   <%# parking %>
   <div class="form-group">
     <%= f.label :parking, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
+    <div class="col-md-8">
       <%= f.text_field :parking, class: "form-control" %>
     </div>
   </div>
@@ -106,17 +106,19 @@
 
   <%# img_data %>
   <div class="form-group">
-    <%= f.label :img_data, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_area :img_data, class: "form-control" %>
+    <%= f.label :image_data, class: "col-sm-2 control-label" %>
+    <div class="col-md-8">
+      <%= f.hidden_field :image, value: @home.img_data %>
+      <%= f.file_field :image %>
     </div>
   </div>
+
 
 
   <%# roof_type %>
   <div class="form-group">
     <%= f.label :roof_type, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
+    <div class="col-md-8">
       <%= f.text_field :roof_type, class: "form-control" %>
     </div>
   </div>
@@ -125,7 +127,7 @@
   <%# lot_size %>
   <div class="form-group">
     <%= f.label :lot_size, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
+    <div class="col-md-8">
       <%= f.number_field :lot_size, class: "form-control" %>
     </div>
   </div>
@@ -134,7 +136,7 @@
   <%# hoa %>
   <div class="form-group">
     <%= f.label :hoa, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
+    <div class="col-md-8">
       <%= f.number_field :hoa, class: "form-control" %>
     </div>
   </div>
@@ -143,7 +145,7 @@
   <%# hoa_fee %>
   <div class="form-group">
     <%= f.label :hoa_fee, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
+    <div class="col-md-8">
       <%= f.number_field :hoa_fee, class: "form-control" %>
     </div>
   </div>
@@ -152,7 +154,7 @@
   <%# number_of_floors %>
   <div class="form-group">
     <%= f.label :number_of_floors, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
+    <div class="col-md-8">
       <%= f.number_field :number_of_floors, class: "form-control" %>
     </div>
   </div>
@@ -161,7 +163,7 @@
   <%# year_built %>
   <div class="form-group">
     <%= f.label :year_built, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
+    <div class="col-md-8">
       <%= f.number_field :year_built, class: "form-control" %>
     </div>
   </div>
@@ -169,7 +171,7 @@
 
   <%# Submit %>
   <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
+    <div class="col-md-offset-4 col-md-8">
       <%= f.submit class: "btn btn-primary" %>
     </div>
   </div>

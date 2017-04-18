@@ -39,9 +39,9 @@
 
     <div class="sign row">
       <div class="col-md-3"> </div>
-      <div class="col-md-2"><%= link_to homes_path do %> <button type="button" class="btn btn-lg btn-primary" disabled="disabled">Sign In</button><% end %></div>
-      <div class="col-md-2"><%= link_to homes_path do %> <button type="button" class="btn btn-lg btn-success" disabled="disabled"> Sign Up</button><% end %></div>
-      <div class="col-md-2"><%= link_to homes_path do %> <button type="button"  class="btn btn-lg btn-info" disabled="disabled"> View Homes </button><% end %></div>
+      <div class="col-md-2"><%= link_to login_path do %> <button type="button" class="btn btn-lg btn-primary" disabled="disabled">Sign In</button><% end %></div>
+      <div class="col-md-2"><%= link_to new_home_path do %> <button type="button" class="btn btn-lg btn-success" disabled="disabled"> Add Listing</button><% end %></div>
+      <div class="col-md-2"><%= link_to homes_path do %> <button type="button"  class="btn btn-lg btn-info" disabled="disabled"> Current Listings </button><% end %></div>
       <div class="col-md-3"> </div>
     </div>
 
@@ -54,8 +54,7 @@
     <div class="col-md-2"></div>
   </div>
 
-  <div class="container">
-    <div class="col-lg-8 col-md-offset-2">
+    <div class="container">
       <div class="input-group">
         <input type="text" class="form-control" placeholder="What kind of home are you looking for?">
         <span class="input-group-btn">
@@ -63,7 +62,6 @@
         </span>
       </div>
     </div>
-  </div>
 
   <div class="landing row">
     <div class="pic col-md-2"><%= image_tag("gleft.jpg", size: "250x250", :alt => "Promo Image") %></div>
