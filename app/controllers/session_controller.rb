@@ -1,4 +1,6 @@
 class SessionController < ApplicationController
+layout false
+
   # logging in
   def new
   end
@@ -8,16 +10,16 @@ class SessionController < ApplicationController
     self.current_user = User.from_omniauth(request.env['omniauth.auth'])
 
     if current_user
-      redirect_to root_path
+      redirect_to homes_path
     else
-      redirect_to auth_path(provider: 'github')
+      redirect_to login_path, notice: "There was an error while trying to authenticate you."
     end
   end
 
   # logout
   def destroy
     session[:user_id] = nil
-    redirect_to root_path
+    redirect_to homes_path
   end
 
   # Show the failure page
