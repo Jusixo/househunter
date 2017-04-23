@@ -38,9 +38,19 @@
           <%= link_to 'Login', login_path, class: "btn btn-default" %>
         </li>
         <li>
-          <%= link_to 'Signup', signup_path, class: "btn btn-default" %>
+          <%= form_tag(homes_path, :method => "get", id: "search-form", class: "navbar-form navbar-right form-inline") do %>
+          <div class="form-group">
+          <%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Search" %>
+          <%= submit_tag "Search", class: "btn btn-default" %>
+        </div>
+          <% end %>
+          <% if @homes_search.present? %>
+            <%= render @homes_search %>
+          <% else %>
+             <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+          <% end %>
         </li>
-        <% end %>
+          <% end %>
       </ul>
       </div>
   </nav>

@@ -2,8 +2,15 @@ class HomesController < ApplicationController
   before_action :authenticate!, except: [:index, :search, :show]
   # GET /homes
   def index
-    @homes = Home.all
+  @homes = Home.page(params[:page]).per(6)
+    @homes_search = Home.all
+    if params[:search]
+      @homes_search = Home.search(params[:search]).order("created_at DESC")
+    else
+      @homes
+    end
   end
+
 
   # GET /homes/1
   def show

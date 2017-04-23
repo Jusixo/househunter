@@ -15,4 +15,12 @@ class Home < ApplicationRecord
   def can_user_destroy?(user)
     created_by == user
   end
+
+  def self.search(search)
+    where("address LIKE ? or city LIKE ? or state LIKE ? or zip LIKE ?",
+    "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
+  end
+
+  after_save ThinkingSphinx::RealTime.callback_for(:home)
+
 end
