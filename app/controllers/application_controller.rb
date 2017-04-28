@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-    # Assign the current user
+
   def current_user=(user)
     session[:user_id] = user.id
   end
@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
-# Returns a boolean representing if the user is logged in
+  # Returns a boolean representing if the user is logged in
   def logged_in?
     !!current_user
   end

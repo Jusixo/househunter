@@ -3,7 +3,7 @@
     <span class="glyphicon glyphicon-list-alt"></span>
     Back
   <% end %>
-  <% if @home.user == current_user %>
+  <% if current_user %>
     <%= link_to edit_home_path(@home), class: 'btn btn-primary new-home-button' do %>
       <span class="glyphicon glyphicon-pencil"></span>
       Edit
@@ -17,8 +17,7 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt>Image:</dt>
-  <dd><%= image_tag (@home.image_url) %></dd>
+  <dd><%= image_tag (@home.image_url(:small)) %></dd>
 
   <dt>Address:</dt>
   <dd><%= @home.address %></dd>

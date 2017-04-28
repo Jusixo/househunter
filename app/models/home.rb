@@ -21,6 +21,6 @@ class Home < ApplicationRecord
     "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
   end
 
-  after_save ThinkingSphinx::RealTime.callback_for(:home)
+  # after_save ThinkingSphinx::RealTime.callback_for(:home)
 
 end

@@ -1,29 +1,36 @@
 
-<div class="page-header">
-  <% unless logged_in? %>
-    <%= link_to new_home_path, class: 'btn btn-default' do %>
-      New Home
+  <div class="jumbotron">
+    <h1 Listing>Homes for Sale</h1>
+  </div>
+
+
+
+  <div class="header">
+    <% if logged_in? %>
+      <%= link_to new_home_path, class: 'btn btn-success' do %>
+        <span class="glyphicon glyphicon-plus"></span>
+        New Home
+      <% end %>
     <% end %>
-  <% end%>
-  <h1 Listing>Homes for Sale</h1>
-</div>
-<%- @homes.each do |home| %>
-  <div class="media">
-    <div class="media-left">
-      <a href="#">
-        <img class="media-object" src="" width="155" height="150">
-      </a>
-    </div>
-    <div class="media-body">
-      <h4 class="media-heading"><%= home.address %></h4>
-        <p>
+  </div>
+
+
+
+  <%- @homes.each do |home| %>
+
+  <div class="media-body">
+      <%= image_tag ( home.image_url(:small)) %>
+    <h4 class="media-heading"><%= home.address %></h4>
+      <p>
+
         <%= home.city %> , <%= home.state %> <%= home.zip %>
-        </p>
+      </p>
         $ <%= home.price %>
-        <p><%= home.bedroom %> bedrooms , <%= home.bath %> bathrooms</p>
+      <p><%= home.bedroom %> bedrooms , <%= home.bath %> bathrooms</p>
 
-    </div>
-    <div>
 
-    </div>
-<% end %>
+
+
+
+  </div>
+  <% end %>

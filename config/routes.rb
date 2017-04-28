@@ -10,14 +10,12 @@ get    '/auth/:provider'          => 'omniauth#auth',    as: :auth
 get    '/auth/:provider/callback' => 'session#create'
 get    '/auth/failure'            => 'session#failure'
 
-get '/signup' => 'users#new'
-post '/users' => 'users#create'
-
 get '/login' => 'session#new'
 post '/login' => 'session#create'
 get '/logout' => 'session#destroy'
 
-mount Shrine::DownloadEndpoint => "/attachments"
 
+
+mount Shrine::DownloadEndpoint => "/attachments"
 
 end
