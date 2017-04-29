@@ -1,5 +1,5 @@
 <li class="list-group-item home-list-group">
-  <div class="media">
+  <div class="media home-media">
     <div class="media-left">
       <%= link_to home_path(home) do %>
          <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
@@ -7,6 +7,29 @@
         <%= image_tag (home.image_url(:small)) %>
       </a>
 
+      <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Slideshow</button>
+
+      <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <%= image_tag (home.image_url(:large)) %>
+          </div>
+        </div>
+      </div> -->
+
+    </div>
+    <div class="media-body home-media-body">
+      <br />
+      <br />
+      <br />
+      <br />
+      <h4 class="media-heading"><%= home.address %></h4>
+      <%= home.city %>,
+      <%= home.state %>,
+      <%= home.description %>,
+      Price: <%= home.price %>
+
+    <div class="">
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Slideshow</button>
 
       <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
@@ -16,11 +39,9 @@
           </div>
         </div>
       </div>
-
     </div>
-    <div class="media-body">
-      <h4 class="media-heading"><%= home.address %></h4>
-      <%= home.description %>
+
+
 
       <div class="pull-right">
         <%= link_to home do %>
