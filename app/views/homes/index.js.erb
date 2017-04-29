@@ -1,0 +1,7 @@
+console.log('This is from the server, NIIIIIICE. There are <%= @items.size %> items matched')
+
+<% if @home.empty? %>
+  $('.items-list-group').html('<%= j(render 'empty_home') %>')
+<% else %>
+  $('.items-list-group').html('<%= j(render @home) %>')
+<% end %>

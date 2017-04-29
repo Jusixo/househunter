@@ -6,6 +6,8 @@ class HomesController < ApplicationController
 
     if params[:searched]
       @homes_searched =  Home.where("address like ? or city like ? or state like ? or zip = ?", "%#{params[:searched]}%", "%#{params[:searched]}%", "%#{params[:searched]}%", "#{params[:searched].to_i}")
+
+      @suggestion = "Mansion"
     else
       @homes = Home.all.order(created_at: :desc).page(@page).per(6)
     end
@@ -30,7 +32,7 @@ class HomesController < ApplicationController
   def create
     @home = Home.new(home_params)
     @home.created_by = current_user
-    
+
     if @home.save
       redirect_to @home, notice: 'Home was successfully created.'
     else

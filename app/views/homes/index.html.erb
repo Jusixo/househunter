@@ -1,36 +1,28 @@
 
-  <div class="jumbotron">
-    <h1 Listing>Homes for Sale</h1>
-  </div>
 
-
-
-  <div class="header">
-    <% if logged_in? %>
-      <%= link_to new_home_path, class: 'btn btn-success' do %>
-        <span class="glyphicon glyphicon-plus"></span>
-        New Home
-      <% end %>
+  <div class="input-group">
+    <%= form_tag(homes_path, :method => "get", id: "search-form", class: "navbar-form navbar-right form-inline") do %>
+    <div class="form-group">
+      <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search", style: 'width: 900px' %>
+      <%= submit_tag "Search", class: "btn btn-default" %>
+    </div>
     <% end %>
   </div>
 
-
-
-  <%- @homes.each do |home| %>
-
-  <div class="media-body">
-      <%= image_tag ( home.image_url(:small)) %>
-    <h4 class="media-heading"><%= home.address %></h4>
-      <p>
-
-        <%= home.city %> , <%= home.state %> <%= home.zip %>
-      </p>
-        $ <%= home.price %>
-      <p><%= home.bedroom %> bedrooms , <%= home.bath %> bathrooms</p>
-
-
-
-
-
-  </div>
+<div class="jumbotron">
+  <h1 Listing>Houses Hunted</h1>
+  <% if logged_in? %>
+    <%= link_to new_home_path, class: 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-plus"></span>
+      Like to add a home?
+    <% end %>
   <% end %>
+</div>
+
+<ul class="list-group homes-list-group">
+  <% if @homes.empty? %>
+    <%= render 'empty_homes' %>
+  <% else %>
+    <%= render @homes %>
+  <% end %>
+</ul>

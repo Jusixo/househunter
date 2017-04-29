@@ -30,7 +30,7 @@
     <% end %>
     <body>
 
-    <div class="page-header text-center">
+    <div class="page-header landing-page-header text-center">
       <h1>Welcome to House Hunters</h1>
       <h1><small>We will do what we can to find the house of your dreams</small></h1>
     </div>
@@ -56,12 +56,18 @@
 
     <div class="container">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="What kind of home are you looking for?">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-        </span>
+        <%= form_tag(homes_path, :method => "get", id: "search-form", class: "navbar-form navbar-right form-inline") do %>
+        <div class="form-group">
+          <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search", style: 'width: 900px' %>
+          <%= submit_tag "Search", class: "btn btn-default" %>
+        </div>
+        <% end %>
       </div>
     </div>
+
+
+
+
 
   <div class="landing row">
     <div class="pic col-md-2"><%= image_tag("gleft.jpg", size: "250x250", :alt => "Promo Image") %></div>

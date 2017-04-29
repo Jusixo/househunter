@@ -1,4 +1,4 @@
-.page-header{
+.landing-page-header{
    opacity: 0.5;
    background: #AEC6CF;
    background-position: center;
@@ -27,6 +27,15 @@ background-repeat: no-repeat;
 }
 
 .pic img{
+  margin: 40px;
+  display: flex;
+  padding: 0;
+  border: solid 10px #AEC6CF ;
+  border-radius: 20px;
+  margin-bottom: 40px;
+}
+
+  home-list-group{
   margin: 40px;
   display: flex;
   padding: 0;
