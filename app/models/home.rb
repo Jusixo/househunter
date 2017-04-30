@@ -5,8 +5,10 @@ class Home < ApplicationRecord
   validates :zip, presence: true
   validates :price, presence: true
 
-  belongs_to :created_by, class_name: "User"
   include ImageUploader[:image]
+
+  belongs_to :created_by, class_name: "User"
+  has_many :favorites, dependent: :destroy
 
   def can_user_edit?(user)
     created_by == user

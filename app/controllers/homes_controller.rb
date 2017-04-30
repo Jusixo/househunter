@@ -57,6 +57,12 @@ class HomesController < ApplicationController
     redirect_to homes_url, notice: 'Home was successfully destroyed.'
   end
 
+  def favorite
+  # talk to AJAX server.
+  # record the house_id, user_id, and log them.
+  # return a favorite class name that will change the heart red the next time it is loaded, or standard class if not the favorite.
+  end
+
   private
 
   # Only allow a trusted parameter "white list" through.
