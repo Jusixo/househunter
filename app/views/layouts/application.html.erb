@@ -31,7 +31,7 @@
           <p class="navbar-text btn btn-primary">Welcome: <%= current_user.name %></p>
         </li>
         <li>
-          <%=link_to "Logout", logout_path, class: "btn btn-default" %>
+          <%=link_to "Logout", logout_path, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
         </li>
         <% else %>
         <li>
