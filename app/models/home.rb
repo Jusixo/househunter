@@ -25,4 +25,7 @@ class Home < ApplicationRecord
 
   # after_save ThinkingSphinx::RealTime.callback_for(:home)
 
+  def square_meters
+    square_feet * 0.0929
+  end
 end

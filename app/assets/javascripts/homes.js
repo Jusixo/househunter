@@ -4,38 +4,34 @@ $(document).ready(function() {
 
 
   $('.clickable-heart').on('click', function(event) {
-    $(this).css({ color: "red" })
-        let homeId = $(this).data("homeid")
-        console.log(`The value is ${homeId}`)
-      })
+    let isFavorited = $(this).hasClass('clicked')
 
-      $('.clickable-heart').off('click', '.fav-heart', function(event) {
-        $('.fav-heart').off("click");
-      })
+    $(this).toggleClass('clicked')
+    let homeId = $(this).data("home-id")
 
+    let url = isFavorited ? `/homes/${homeId}/unfavorite` : `/homes/${homeId}/favorite`
 
     $.ajax({
-      url: '/homes',
-      data: { query: home_id},
+      method: 'POST',
+      url: url,
+      data: { homeId: homeId},
       dataType: 'script'
     })
-
   })
 
 
   // Square Feet to Square Meters on show
-   $('.dt sqFeet').on('click', '.sqFeet', function(event) {
-     let sqFeet = $(this).data("sqfeet")
-     let sqMeters = (sqFeet * 0.0929).toFixed(2)
-     console.log(`The value is ${sqMeters}`)
-     $(this).replaceWith( `<dd class="sqMeters" data-sqfeet="${sqFeet}">${sqMeters} Square Meters</dd>` )
-   })
+   $('body').on('click', '.sqFeet', function(event) {
+     let sqFeet   = $(this).data('sqfeet')
+     let sqMeters = $(this).data('sqmeters')
 
-   // Square Meters to Square Feet on show
-   $('.dt').on('click', '.sqMeters', function(event) {
-     let sqFeet = $(this).data("sqfeet")
-     console.log(`The value is ${sqFeet}`)
-     $(this).replaceWith( `<dd class="sqFeet" data-sqfeet="${sqFeet}">${sqFeet} Square Feet</dd>` )
+     if ($(this).data('showing-meters') === 'true') {
+       $(this).text(`${sqFeet} Square Feet`)
+       $(this).data('showing-meters', 'false')
+     } else {
+       $(this).text(`${sqMeters} Square Meters`)
+       $(this).data('showing-meters', 'true')
+     }
    })
 
 
@@ -58,10 +54,5 @@ $(document).ready(function() {
 
     console.log(page)
   })
-
-
-
-
-
 
 })

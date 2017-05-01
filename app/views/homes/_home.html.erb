@@ -1,15 +1,13 @@
 <li class="list-group-item home-list-group">
   <div class="media home-media">
     <div class="media-left">
-      <%= link_to home_path(home) do %>
-        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-         <% end %>
-        <span class="clickable-heart" style="padding-left:260px;"></span>
-        <%=link_to raw("<i class='glyphicon glyphicon-heart'></i>"), '#', class: "clickable-heart", data: {home_id: home.id} %>
-
-        <%= image_tag (home.image_url(:small)) %>
-      </a>
-
+      <div>
+        <i data-home-id="<%= home.id %>" class='pull-right clickable-heart glyphicon glyphicon-heart <%= home_clicked_class(current_user, home) %>'></i>
+        <%= link_to home_path(home) do %>
+          <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+        <% end %>
+      </div>
+      <%= image_tag (home.image_url(:small)) %>
     </div>
     <div class="media-body home-media-body">
       <br />
@@ -23,9 +21,9 @@
       Price: <%= home.price %>
 
     <div class="">
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Slideshow</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".home-slideshow-<%= home.id %>">Slideshow</button>
 
-      <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+      <div class="modal fade home-slideshow-<%= home.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <%= image_tag (home.image_url(:large)) %>

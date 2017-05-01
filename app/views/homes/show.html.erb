@@ -61,7 +61,9 @@
 
   <dt>Square feet:</dt>
 
-  <dd class="sqFeet" data-sqfeet="<%= @home.square_feet %>"><%= @home.square_feet %> Sq Feet</dd>
+  <dd class="sqFeet" data-showing-meters="false" data-sqmeters="<%= @home.square_meters %>" data-sqfeet="<%= @home.square_feet %>">
+    <%= @home.square_feet %> Sq Feet
+  </dd>
 
   <dt>Price:</dt>
   <dd><%= @home.price %></dd>

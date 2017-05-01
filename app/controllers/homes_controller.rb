@@ -9,7 +9,7 @@ class HomesController < ApplicationController
 
       @suggestion = "Mansion"
     else
-      @homes = Home.all.order(created_at: :desc).page(@page).per(6)
+      @homes = Home.all.order(created_at: :desc).page(@page).per(4)
     end
   end
 
@@ -57,10 +57,17 @@ class HomesController < ApplicationController
     redirect_to homes_url, notice: 'Home was successfully destroyed.'
   end
 
+  def unfavorite
+    home = Home.find(params[:homeId])
+
+    favorite = Favorite.find_by(user: current_user, home: home)
+    favorite.destroy
+  end
+
   def favorite
-  # talk to AJAX server.
-  # record the house_id, user_id, and log them.
-  # return a favorite class name that will change the heart red the next time it is loaded, or standard class if not the favorite.
+    home = Home.find(params[:homeId])
+
+    Favorite.create(user: current_user, home: home)
   end
 
   private
