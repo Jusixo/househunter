@@ -60,7 +60,8 @@
   <dd><%= @home.bath %></dd>
 
   <dt>Square feet:</dt>
-  <dd><%= @home.square_feet %></dd>
+
+  <dd class="sqFeet" data-sqfeet="<%= @home.square_feet %>"><%= @home.square_feet %> Sq Feet</dd>
 
   <dt>Price:</dt>
   <dd><%= @home.price %></dd>

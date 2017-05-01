@@ -23,6 +23,22 @@ $(document).ready(function() {
   })
 
 
+  // Square Feet to Square Meters on show
+   $('.dt sqFeet').on('click', '.sqFeet', function(event) {
+     let sqFeet = $(this).data("sqfeet")
+     let sqMeters = (sqFeet * 0.0929).toFixed(2)
+     console.log(`The value is ${sqMeters}`)
+     $(this).replaceWith( `<dd class="sqMeters" data-sqfeet="${sqFeet}">${sqMeters} Square Meters</dd>` )
+   })
+
+   // Square Meters to Square Feet on show
+   $('.dt').on('click', '.sqMeters', function(event) {
+     let sqFeet = $(this).data("sqfeet")
+     console.log(`The value is ${sqFeet}`)
+     $(this).replaceWith( `<dd class="sqFeet" data-sqfeet="${sqFeet}">${sqFeet} Square Feet</dd>` )
+   })
+
+
 
 
   $('#query').on('input', function(event) {
