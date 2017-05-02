@@ -8,10 +8,12 @@ class User < ApplicationRecord
                       uid: authentication_data['uid']).first_or_create
 
     Rails.logger.debug "The user is #{user.inspect}"
+    Rails.logger.debug "The oauth info is #{authentication_data.info.inspect}"
 
     user.name         = authentication_data.info.name
     user.nickname     = authentication_data.info.nickname
     user.access_token = authentication_data.info.access_token
+    user.email        = authentication_data.info.email
 
     user.save!
 
