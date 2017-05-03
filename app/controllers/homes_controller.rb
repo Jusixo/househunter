@@ -74,7 +74,7 @@ class HomesController < ApplicationController
   end
 
   def week_list
-    week_old = Home.find_by(created_at <= 1.week_old)
+    week_collection = Home.pluck(created_at <= 1.week)
   end
 
   private
