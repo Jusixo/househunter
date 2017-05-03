@@ -19,6 +19,8 @@ class User < ApplicationRecord
 
     Rails.logger.debug "After saving, the user is #{user.inspect}"
 
+    HhMailer.welcome(user).deliver_later
+
     return user
   end
 end
