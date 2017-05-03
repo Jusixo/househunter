@@ -1,23 +1,10 @@
 Hh#welcome
 
-<%= @greeting %>, find me in app/views/hh_mailer/welcome.text.erb
+<%= @user.name %>,
 
 Welcome to House Hunter
 
 Thank you so much for signing up. You can see the latest homes here:
-<%= homes_url %>
+<%= link_to "for sale", homes_url %>
 
-Have something you want sell, post it here: <%= new_home_url %>
-
-
-
-<h1>Welcome to House Hunter</h1>
-
-<p>
-  Thank you so much for signing up. You can see the latest homes
-  <%= link_to "for sale", items_url %>
-</p>
-
-<p>
-  Have something you want sell, <%= link_to "post it on yardsale", new_item_url %>
-</p>
+Have a home you want sell? post it here: <%= link_to "post it on house hunters", new_home_url %>

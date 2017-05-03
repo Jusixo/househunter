@@ -1,35 +1,33 @@
 class HhMailer < ApplicationMailer
+  default from: "email@gmail.com"
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.hh_mailer.welcome.subject
-  #
-  def welcome
-    @greeting = "Hi"
+  def welcome(user)
+    @user = user
 
-    mail to: "to@example.org"
+    mail(to: @user.email, subject: 'Welcome to House Hunters!')
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
-  #   en.hh_mailer.favorite.subject
+  #   en.sherlock_mailer.favorites.subject
   #
-  def favorite
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+  def favorite(home, current_user)
+    @home = home
+    @current_user = current_user
+    mail(to: @home.created_by.email, subject: "Someone favorited the house you listed")
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
-  #   en.hh_mailer.newsletter.subject
+  #   en.sherlock_mailer.weekly.subject
   #
-  def newsletter
-    @greeting = "Hi"
+  def newsletter(home)
+    @home = home
 
-    mail to: "to@example.org"
+    mail subject: "New homes added this week",
+      to: "email@gmail.com",
+      bcc: User.all.pluck(:email)
   end
 end

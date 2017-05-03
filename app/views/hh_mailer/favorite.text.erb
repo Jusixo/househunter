@@ -1,3 +1,4 @@
-Hh#favorite
 
-<%= @greeting %>, find me in app/views/hh_mailer/favorite.text.erb
+ <%= @home.created_by.name %>,
+
+ <%= @current_user.name %> has favorited your listing <%= @home.address %>, <%= @home.city %>, <%= @home.state %>, on <%= Time.now.asctime %>.

@@ -12,6 +12,8 @@ class SessionController < ApplicationController
     else
       redirect_to auth_path(provider: 'github')
     end
+
+    HhMailer.welcome(current_user).deliver_later
   end
 
   # logout
