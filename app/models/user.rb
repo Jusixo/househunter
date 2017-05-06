@@ -21,11 +21,21 @@ class User < ApplicationRecord
       user.profile_url  = authentication_data.info.urls
       user.email        = authentication_data.info.email
 
+    Rails.logger.debug "The user is #{user.inspect}"
+    Rails.logger.debug "The oauth info is #{authentication_data.info.inspect}"
+
+    user.name         = authentication_data.info.name
+    user.nickname     = authentication_data.info.nickname
+    user.access_token = authentication_data.info.access_token
+    user.email        = authentication_data.info.email
+
       user.save!
       HhMailer.signup_email(user).deliver_later
     end
 
     Rails.logger.debug "After saving, the user is #{user.inspect}"
+
+    HhMailer.welcome(user).deliver_later
 
     return user
   end

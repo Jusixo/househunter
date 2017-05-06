@@ -68,6 +68,13 @@ class HomesController < ApplicationController
     home = Home.find(params[:homeId])
 
     Favorite.create(user: current_user, home: home)
+
+    HhMailer.favorites(home, current_user).deliver_later
+
+  end
+
+  def week_list
+    week_collection = Home.pluck(created_at <= 7.days(7))
   end
 
   private

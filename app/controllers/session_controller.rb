@@ -12,6 +12,7 @@ class SessionController < ApplicationController
     else
       redirect_to auth_path(provider: 'github')
     end
+
   end
 
   # logout
