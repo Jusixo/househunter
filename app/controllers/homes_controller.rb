@@ -5,7 +5,7 @@ class HomesController < ApplicationController
     @page = params[:page].to_i
 
     if params[:searched]
-      @homes_searched =  Home.where("address like ? or city like ? or state like ? or zip = ?", "%#{params[:searched]}%", "%#{params[:searched]}%", "%#{params[:searched]}%", "#{params[:searched].to_i}")
+      @homes_searched = Home.where("address like ? or city like ? or state like ? or zip = ?", "%#{params[:searched]}%", "%#{params[:searched]}%", "%#{params[:searched]}%", "#{params[:searched].to_i}")
 
       @suggestion = "Mansion"
     else

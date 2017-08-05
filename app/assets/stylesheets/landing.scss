@@ -1,0 +1,42 @@
+.jumbotron {
+  margin-top: 200px;
+  border: solid;
+  border-color: green;
+}
+
+/*search bar*/
+.searchbar {
+  margin-top: 10px;
+  border: solid;
+  border-color: green;
+  border-radius: 5px;
+}
+
+.well {
+  background-color: #cdcdcd;
+  border: none;
+  margin-bottom: none;
+}
+.header {
+  background-color: #cdcdcd, 0.5;
+}
+
+/*parallax*/
+body, html {
+    height: 100%;
+    background-color: #cdcdcd, 0.5;
+}
+
+.parallax {
+    /* The image used */
+    background-image: image-url("cin.jpg");
+
+    height: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}

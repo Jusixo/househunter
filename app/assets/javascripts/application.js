@@ -16,3 +16,4 @@
 
 //= require 'cable'
 //= require 'homes'
+//= require 'pages'

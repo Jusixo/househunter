@@ -1,5 +1,4 @@
-# README
- House Hunter app.
+# House Hunter app.
 
 ### BUILT WITH:
 - Rails version 5.0.2

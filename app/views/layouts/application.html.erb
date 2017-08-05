@@ -20,48 +20,78 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="controller-<%= controller_name%> action-<%= action_name%>">
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <%= link_to "House Hunters", root_path, class: "navbar-brand" %>
+  <nav class="navbar navbar-default navbar-doublerow navbar-trans navbar-fixed-top">
+    <!-- top nav -->
+    <nav class="navbar navbar-top hidden-xs">
+      <div class="container">
+        <!-- left nav top -->
+        <ul class="nav navbar-nav pull-left">
+          <li><a href="https://github.com/Jusixo"><span class="fa fa-github-square text-white"></span></a></li>
+          <li><a href="https://www.linkedin.com/in/jusixo/"><span class="fa fa-linkedin-square text-white"></span></a></li>
+          <li><a href="#"><span class="text-white">Questions? CALL: <b>(813)210-5528</b></span></a></li>
+        </ul>
+        <!-- right nav top -->
+        <ul class="nav navbar-nav pull-right">
+          <li><a href="#about" class="text-white">About us</a></li>
+          <li><a href="#" class="text-white">Contact us</a></li>
+        </ul>
       </div>
-      <ul class="nav navbar-nav navbar-right">
-        <% if logged_in? %>
-        <li>
-          <p class="navbar-text btn btn-primary">Welcome: <%= current_user.name %></p>
-        </li>
-        <li>
-          <%=link_to "Logout", logout_path, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
-        </li>
-        <% else %>
-        <li>
-          <%= link_to 'Login', login_path(provider: 'github'), class: "btn btn-default" %>
-        </li>
-        <li>
-          <%= form_tag(homes_path, :method => "get", id: "search-form", class: "navbar-form navbar-right form-inline") do %>
-          <div class="form-group">
-          <%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Search" %>
-          <%= submit_tag "Search", class: "btn btn-default" %>
+      <div class="dividline light-grey"></div>
+    </nav>
+    <!-- down nav -->
+    <nav class="navbar navbar-down">
+      <div class="container">
+        <div class="flex-container">
+          <div class="navbar-header flex-item">
+            <div class="navbar-brand"><%= link_to root_path do %>House Hunters<% end %></div>
+          </div>
+          <ul class="nav navbar-nav flex-item hidden-xs">
+            <li><%= link_to homes_path do %>Homes<% end %></li>
+            <li><a href="#search">Search</a></li>
+          </ul>
+          <ul class="nav navbar-nav flex-item hidden-xs pull-right">
+
+            <%- if logged_in? %>
+              <li>
+                <a>Welcome: <%= current_user.name.upcase %> </a>
+              </li>
+              <li>
+                <%= link_to "Log out", logout_path, data: { confirm: 'Are you sure?' } %>
+              </li>
+              <%- else %>
+              <li>
+                <%= link_to auth_path(provider: 'github') do %>Sign in<% end %>
+              </li>
+            <% end %>
+          </ul>
+          <!-- dropdown only moblie -->
+            <div class="dropdown visible-xs pull-right">
+              <button class="btn btn-default dropdown-toggle " type="button" id="dropdownmenu" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-align-justify"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><%= link_to homes_path do %>Homes<% end %></li>
+                <li><a href="#search">Search</a></li>
+                <%- if logged_in? %>
+                  <li>
+                    <a>Welcome: <%= current_user.name.upcase %> </a>
+                  </li>
+                  <li>
+                    <%= link_to "Log out", logout_path, data: { confirm: 'Are you sure?' } %>
+                  </li>
+                  <%- else %>
+                  <li>
+                    <%= link_to auth_path(provider: 'github') do %>Sign in<% end %>
+                  </li>
+                  <% end %>
+                <li role="separator" class="divider"></li>
+                <li><a href="https://jusixo.github.io">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
-          <% end %>
-          <% if @homes_search.present? %>
-            <%= render @homes_search %>
-          <% else %>
-             <p><%= params[:search] %>.</p>
-          <% end %>
-        </li>
-          <% end %>
-      </ul>
-      </div>
-  </nav>
-  <div class="container">
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do %>
-        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <%= msg %>
-      <% end %>
-    <% end %>
-    <%= yield %>
-  </div>
+      </nav>
+    </nav>
+    <%= yield %> 
 </body>
 </html>
