@@ -1,4 +1,6 @@
 <div class="jumbotron">
   <h1>No Homes Found</h1>
-  <p>Did you mean <%= @suggestion %></p>
+  <p>Please try again later, or
+    <%= link_to new_home_path, class: 'btn btn-primary' do %> Add a listing<% end %>
+  </p>
 </div>
