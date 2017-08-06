@@ -43,10 +43,10 @@
       <div class="container">
         <div class="flex-container">
           <div class="navbar-header flex-item">
-            <div class="navbar-brand"><%= link_to root_path do %>House Hunters<% end %></div>
+            <div class="navbar-brand">House Hunters</div>
           </div>
           <ul class="nav navbar-nav flex-item hidden-xs">
-            <li><%= link_to homes_path do %>Homes<% end %></li>
+            <li><%= link_to homes_path do %>Back to home<% end %></li>
             <li><a href="#search">Search</a></li>
           </ul>
           <ul class="nav navbar-nav flex-item hidden-xs pull-right">
@@ -92,6 +92,6 @@
         </div>
       </nav>
     </nav>
-    <%= yield %> 
+    <%= yield %>
 </body>
 </html>

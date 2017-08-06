@@ -1,9 +1,15 @@
 @import "bootstrap-variables.scss";
 @import "bootstrap-sprockets.scss";
 @import "bootstrap.scss";
+@import "boot.scss";
 
 body {
   padding-top: $navbar-height + 10px;
+  background-image: image-url("cin.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .page-header {

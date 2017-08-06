@@ -1,9 +1,12 @@
-.sign{
-  margin-top: 0;
-  margin-bottom: 60px;
+.jumbotron-index {
+  margin-top: 200px;
+  text-align: center;
+  background-color: transparent;
+  color: white;
+  text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray;
 }
 
-.landing-row{
+.landing-row {
   display: flex;
   justify-content: space-between ;
   align-items: baseline ;
@@ -18,7 +21,7 @@
   margin-bottom: 40px;
 }
 
-  home-list-group{
+.home-list-group {
   margin: 40px;
   display: flex;
   padding: 0;
@@ -26,14 +29,7 @@
   border-radius: 20px;
   margin-bottom: 40px;
 }
-
-.home-media {
-  padding: 0;
-  border: solid 10px #AEC6CF ;
-  border-radius: 20px;
-  margin-bottom: 40px;
-}
-
+/*favoriting*/
 .clickable-heart.clicked {
   color: red;
 }
@@ -46,7 +42,7 @@
 }
 
 /*double row*/
-.navbar-doublerow > .navbar{
+.navbar-doublerow .navbar{
 	display: block;
 	padding: 0px auto;
 	margin: 0px auto;

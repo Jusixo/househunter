@@ -1,42 +1,52 @@
-.jumbotron {
+/*jumbotron*/
+.jumbotron-landing {
   margin-top: 200px;
-  border: solid;
-  border-color: green;
+  background-color: rgba(205, 205, 205, 0.75);
+  text-align: center;
+  color: white;
 }
-
 /*search bar*/
 .searchbar {
-  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 100px;
   border: solid;
   border-color: green;
   border-radius: 5px;
 }
-
-.well {
-  background-color: #cdcdcd;
-  border: none;
-  margin-bottom: none;
-}
-.header {
-  background-color: #cdcdcd, 0.5;
-}
-
 /*parallax*/
 body, html {
-    height: 100%;
-    background-color: #cdcdcd, 0.5;
+  height: 100%;
 }
 
 .parallax {
-    /* The image used */
+/* The image used */
     background-image: image-url("cin.jpg");
 
     height: 100%;
 
-    /* Create the parallax scrolling effect */
+/* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
+}
+/*footer*/
+footer{
+   background-color: rgba(205, 205, 205, 0.75);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 35px;
+    text-align: center;
+    color: black;
+}
+
+footer p {
+    padding: 10.5px;
+    margin: 0px;
+    line-height: 100%;
 }
