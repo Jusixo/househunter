@@ -2,7 +2,7 @@
 // All this logic will automatically be available in application.js.
 $(document).ready(function() {
 
-
+  //favoriting
   $('.clickable-heart').on('click', function(event) {
     let isFavorited = $(this).hasClass('clicked')
 
@@ -34,25 +34,26 @@ $(document).ready(function() {
      }
    })
 
+   // dynamic search
+   $('#query').on('input', function(event) {
+     let queryValue = $(this).val()
+
+     console.log(`You are searching for ${queryValue}`)
+
+     $.ajax({
+       url: '/homes',
+       data: { query: queryValue},
+       dataType: 'script'
+     })
+   })
+
+   // AJAX and pagination and you.
+   $('.page').on('click', function(event) {
+     let page = $(this).val()
+
+     console.log(page)
+   })
 
 
-
-  $('#query').on('input', function(event) {
-    let queryValue = $(this).val()
-
-    console.log(`You are searching for ${queryValue}`)
-
-    $.ajax({
-      url: '/homes',
-      data: { query: queryValue},
-      dataType: 'script'
-    })
-  })
-
-  $('.page').on('click', function(event) {
-    let page = $(this).val()
-
-    console.log(page)
-  })
 
 })

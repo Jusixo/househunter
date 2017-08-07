@@ -2,15 +2,13 @@ class HomesController < ApplicationController
   before_action :authenticate!, except: [:index, :search, :show]
   # GET /homes
   def index
-    @page = params[:page].to_i
-
-    if params[:searched]
-      @homes_searched = Home.where("address like ? or city like ? or state like ? or zip = ?", "%#{params[:searched]}%", "%#{params[:searched]}%", "%#{params[:searched]}%", "#{params[:searched].to_i}")
-
-      @suggestion = "Mansion"
+    @query = params[:query]
+    if @query
+      @homes = Home.where("address like :query or city like :query or state like :query or zip = :query_number", query: "%#{@query}%", query_number: @query.to_i)
     else
-      @homes = Home.all.order(created_at: :desc).page(@page).per(4)
+      @homes = Home.all.order(created_at: :desc)
     end
+    @homes = @homes.page(params[:page]).per(6)
   end
 
   # GET /homes/1
@@ -26,6 +24,11 @@ class HomesController < ApplicationController
   # GET /homes/1/edit
   def edit
     @home = Home.find(params[:id])
+
+    unless @home.can_user_edit?(current_user)
+      send_them_back_with_error
+      return
+    end
   end
 
   # POST /homes
@@ -53,6 +56,12 @@ class HomesController < ApplicationController
   # DELETE /homes/1
   def destroy
     @home = Home.find(params[:id])
+
+    unless @home.can_user_destroy?(current_user)
+      send_them_back_with_error
+      return
+    end
+
     @home.destroy
     redirect_to homes_url, notice: 'Home was successfully destroyed.'
   end
