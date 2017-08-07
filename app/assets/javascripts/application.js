@@ -17,3 +17,4 @@
 //= require 'cable'
 //= require 'homes'
 //= require 'pages'
+//= require 'carousel'
