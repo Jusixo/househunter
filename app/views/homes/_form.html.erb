@@ -104,15 +104,15 @@
   </div>
 
 
-  <%# img_data %>
+  <%# image %>
   <div class="form-group">
-    <%= f.label :image_data, class: "col-sm-2 control-label" %>
-    <div class="col-md-8">
-      <%= f.hidden_field :image, value: @home.image_data %>
+    <%= f.label :image, class: "col-md-2 control-label" %>
+    <div class="col-md-2">
+      <%# This is where our upload button goes! %>
+      <%= f.hidden_field :image, value: @home.cached_image_data %>
       <%= f.file_field :image %>
     </div>
   </div>
-
 
 
   <%# roof_type %>
