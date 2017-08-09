@@ -53,7 +53,7 @@
 
             <%- if logged_in? %>
               <li>
-                <a>Welcome: <%= current_user.name %> </a>
+                <a>Welcome <%= current_user.name %> </a>
               </li>
               <li>
                 <%= link_to "Log out", logout_path, data: { confirm: 'Are you sure?' } %>
@@ -74,7 +74,7 @@
                 <li><a href="#search">Search</a></li>
                 <%- if logged_in? %>
                   <li>
-                    <a>Welcome: <%= current_user.name %> </a>
+                    <a>Welcome <%= current_user.name %> </a>
                   </li>
                   <li>
                     <%= link_to "Log out", logout_path, data: { confirm: 'Are you sure?' } %>
