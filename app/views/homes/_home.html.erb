@@ -1,51 +1,48 @@
-<li class="list-group-item home-list-group">
-  <div class="media home-media">
-    <div class="media-left">
-      <div>
-        <i data-home-id="<%= home.id %>" class='pull-right clickable-heart glyphicon glyphicon-heart <%= home_clicked_class(current_user, home) %>'></i>
-        <%= link_to home_path(home) do %>
-          <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-        <% end %>
-      </div>
-      <%= image_tag (home.image_url(:small)) %>
-    </div>
-    <div class="media-body home-media-body">
-      <br />
-      <br />
-      <br />
-      <br />
-      <h4 class="media-heading"><%= home.address %></h4>
-      <%= home.city %>,
-      <%= home.state %>,
-      <%= home.description %>,
-      Price: <%= home.price %>
-
-    <div class="">
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".home-slideshow-<%= home.id %>">View Larger Image</button>
-
-      <div class="modal fade home-slideshow-<%= home.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <%= image_tag (home.image_url(:large)) %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-      <div class="pull-right">
-        <% if logged_in? %>
-            <%= link_to edit_home_path(home) do %>
-              <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-            <% end %>
-        <% end %>
-        <% if logged_in? %>
-          <%= link_to home, method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+<div class="col-md-6 colum-index">
+  <div class="well">
+    <div class="media">
+      <div class="media-left media-middle">
+        <%= link_to home do %>
+          <% if home.image_url(:original) %>
+            <%= image_tag(home.image_url(:small), class: "media-object", size: "155x150") %>
+          <% else %>
+            <%= image_tag("download.jpg", class: "media-object", size: "155x150") %>
           <% end %>
         <% end %>
+
+        <% if home.image_url(:medium) %>
+          <a class="modal-popup" data-toggle="modal" data-target=".modal-medium-images-<%= home.id %>">Medium</a>
+          <div class="modal modal-medium-images-<%= home.id %>">
+            <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+            <div class="modal-body-images">
+              <%= image_tag(home.image_url(:medium))%>
+            </div>
+          </div>
+        <% end %>
+
+
+        <% if home.image_url(:large)%>
+          <a class="modal-popup" data-toggle="modal" data-target=".modal-large-images-<%= home.id %>">Large</a>
+          <div class="modal modal-large-images-<%= home.id %>">
+            <div class="modal-body-images">
+              <%= image_tag(home.image_url(:large))%>
+            </div>
+          </div>
+        <% end %>
+
+        <% if logged_in? %>
+        <i data-home-id="<%= home.id %>" class='pull-right clickable-heart glyphicon glyphicon-heart <%= home_clicked_class(current_user, home) %>'></i>
+        <% end %>
+      </div>
+
+      <div class="media-body">
+        <h4 class="media-heading"><%= home.address %></h4>
+        <p>
+          <%= home.city %> , <%= home.state %> <%= home.zip %>
+        </p>
+        $ <%= home.price %>
+        <p><%= home.bedroom %> bedrooms , <%= home.bath %> bathrooms</p>
       </div>
     </div>
   </div>
-</li>
+</div>

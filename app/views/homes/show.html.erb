@@ -13,76 +13,78 @@
     <% end %>
   <% end %>
 
-  <h1>Listing</h1>
 </div>
+<div class="well">
+  <h1>Listing</h1>
 
-<dl class="dl-horizontal">
+  <dl class="dl-horizontal">
 
-    <dd><%= image_tag (@home.image_url(:small)) %></dd>
-  <div class="container">
-    <dd><button type="button" class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-sm">img Md</button>
-        <button type="button" class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-lg">img Lg</button></dd>
+      <dd><%= image_tag (@home.image_url(:small)) %></dd>
+    <div class="container">
+      <dd><button type="button" class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-sm">img Md</button>
+          <button type="button" class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-lg">img Lg</button></dd>
 
 
-    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-      <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-          <%= image_tag (@home.image_url(:medium)) %>
+      <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <%= image_tag (@home.image_url(:medium)) %>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <%= image_tag (@home.image_url(:large)) %>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <%= image_tag (@home.image_url(:large)) %>
-        </div>
-      </div>
+    <dt>Address:</dt>
+    <dd><%= @home.address %></dd>
+
+    <dt>City:</dt>
+    <dd><%= @home.city %></dd>
+
+    <dt>State:</dt>
+    <dd><%= @home.state %></dd>
+
+    <dt>Zipcode:</dt>
+    <dd><%= @home.zip %></dd>
+
+    <dt>Bedrooms:</dt>
+    <dd><%= @home.bedroom %></dd>
+
+    <dt>Bathrooms:</dt>
+    <dd><%= @home.bath %></dd>
+
+    <dt>Square feet:</dt>
+
+    <dd class="sqFeet" data-showing-meters="false" data-sqmeters="<%= @home.square_meters %>" data-sqfeet="<%= @home.square_feet %>">
+      <%= @home.square_feet %> Sq Feet
+    </dd>
+
+    <dt>Price:</dt>
+    <dd><%= @home.price %></dd>
+
+    <dt>Description:</dt>
+    <dd><%= @home.description %></dd>
+  </dl>
+
+
+  <% if Time.now - @home.created_at <= 172800 %>
+    <div class="col-md-3 col-md-offset-1 alert-success">
+      <h4 class="s-text">Listed <%= time_ago_in_words(@home.created_at) %> ago</h4>
     </div>
-  </div>
-
-  <dt>Address:</dt>
-  <dd><%= @home.address %></dd>
-
-  <dt>City:</dt>
-  <dd><%= @home.city %></dd>
-
-  <dt>State:</dt>
-  <dd><%= @home.state %></dd>
-
-  <dt>Zipcode:</dt>
-  <dd><%= @home.zip %></dd>
-
-  <dt>Bedrooms:</dt>
-  <dd><%= @home.bedroom %></dd>
-
-  <dt>Bathrooms:</dt>
-  <dd><%= @home.bath %></dd>
-
-  <dt>Square feet:</dt>
-
-  <dd class="sqFeet" data-showing-meters="false" data-sqmeters="<%= @home.square_meters %>" data-sqfeet="<%= @home.square_feet %>">
-    <%= @home.square_feet %> Sq Feet
-  </dd>
-
-  <dt>Price:</dt>
-  <dd><%= @home.price %></dd>
-
-  <dt>Description:</dt>
-  <dd><%= @home.description %></dd>
-</dl>
-
-
-<% if Time.now - @home.created_at <= 172800 %>
-  <div class="col-md-3 col-md-offset-1 alert-success">
-    <h4 class="s-text">Listed <%= time_ago_in_words(@home.created_at) %> ago</h4>
-  </div>
-<% elsif Time.now - @home.created_at >= 2592000 %>
-  <div class="col-md-3 col-md-offset-1 alert-danger">
-    <h4 class="s-text">Listed <%= time_ago_in_words(@home.created_at) %> ago</h4>
-  </div>
-<% else %>
-  <div class="col-md-3 col-md-offset-1">
-    <h4 class="s-text">Listed <%= time_ago_in_words(@home.created_at) %> ago</h4>
-  </div>
-<% end %>
+  <% elsif Time.now - @home.created_at >= 2592000 %>
+    <div class="col-md-3 col-md-offset-1 alert-danger">
+      <h4 class="s-text">Listed <%= time_ago_in_words(@home.created_at) %> ago</h4>
+    </div>
+  <% else %>
+    <div class="col-md-3 col-md-offset-1">
+      <h4 class="s-text">Listed <%= time_ago_in_words(@home.created_at) %> ago</h4>
+    </div>
+  <% end %>
+</div>
