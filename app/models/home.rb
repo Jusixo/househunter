@@ -18,9 +18,9 @@ class Home < ApplicationRecord
     created_by == user
   end
 
-  #search
+  # search
   def self.search(search)
-    where("address like ? or  city like ? or state like ? or zip = ?", "%#{@search}%", "%#{@search}%", "%#{@search}%", @search.to_i)
+    where("address LIKE ? or city LIKE ? or state LIKE ? or zip = ?", "%#{search}%", "%#{search}%", "%#{search}%", search.to_i)
   end
 
   # after_save ThinkingSphinx::RealTime.callback_for(:home)

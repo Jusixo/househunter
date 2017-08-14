@@ -6,7 +6,7 @@
       <div class="">
         <%= form_tag(homes_path, :method => "get", id: "search-form") do %>
         <div class="input-group input-group-lg">
-          <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Where would you like your dream home to be?" %><span class="input-group-btn"><%= submit_tag "Search", class: "btn btn-default" %></span>
+          <%= text_field_tag :queary, params[:queary], class: "form-control", placeholder: "Where would you like to find your dream home?" %><span class="input-group-btn"><%= submit_tag "Search", class: "btn btn-default" %></span>
         </div>
         <% end %>
       </div>
@@ -22,7 +22,11 @@
 
 <div class="container-fluid">
   <ul class="s-ul">
-    <%= render @homes %>
+    <% if @homes.blank? %>
+      <%= render 'empty_home' %>
+    <% else %>
+      <%= render @homes %>
+    <% end %>
   </ul>
 </div>
 

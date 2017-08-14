@@ -35,19 +35,17 @@ $(document).ready(function() {
    })
 
    // dynamic search
-   $('#query').on('input', function(event) {
-     let queryValue = $(this).val()
+   $('#query').on('input', (function(event) {
+    let queryValue = $(this).val()
 
-     console.log(`You are searching for ${queryValue}`)
+    $.ajax({
+      url: '/homes',
+      data: { query: queryValue },
+      dataType: 'script'
+    })
+  }, 400))
 
-     $.ajax({
-       url: '/homes',
-       data: { query: queryValue},
-       dataType: 'script'
-     })
-   })
-
-   // AJAX and pagination and you.
+   // AJAX pagination.
    $('.page').on('click', function(event) {
      let page = $(this).val()
 

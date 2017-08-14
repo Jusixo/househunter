@@ -1,8 +1,5 @@
-console.log('There are <%= @homes.size %> homes that match your search')
-
 <% if @homes.empty? %>
-  $('.s-ul').html('<%= j(render 'empty_homes') %>')
+  $('.index-homes').html('<%= j(render 'empty_homes') %>')
 <% else %>
-  $('.s-ul').html('<%= j(render @homes) %>');
-  $('#paginator').html('<%= j(paginate(@homes, :remote => true).to_s) %>');
+  $('.index-homes').html('<%= j(render @homes) %>')
 <% end %>
