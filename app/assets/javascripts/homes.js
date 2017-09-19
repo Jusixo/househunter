@@ -35,7 +35,7 @@ $(document).ready(function() {
    })
 
    // dynamic search
-   $('#query').on('input', (function(event) {
+   $('#query').on('input', _.debounce(function(event) {
     let queryValue = $(this).val()
 
     $.ajax({
@@ -45,13 +45,9 @@ $(document).ready(function() {
     })
   }, 400))
 
-   // AJAX pagination.
-   $('.page').on('click', function(event) {
-     let page = $(this).val()
-
-     console.log(page)
-   })
-
-
+  // AJAX pagination.
+  $('.pagination').on('click', '.page', function(event) {
+    var baseUrl = document.location.target;
+  })
 
 })
